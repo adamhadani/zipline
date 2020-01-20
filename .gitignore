@@ -78,3 +78,9 @@ TAGS
 .gdb_history
 
 *.dSYM/
+
+# direnv
+.envrc
+
+# pyenv
+.python-version
