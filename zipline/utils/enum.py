@@ -12,7 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+from collections import OrderedDict
 from ctypes import (
     Structure,
     c_ubyte,
@@ -37,9 +37,10 @@ _inttypes_map = {
         c_ushort
     }
 }
+_inttypes_map = OrderedDict(sorted(_inttypes_map.items()))
 _inttypes = list(
     pd.Series(_inttypes_map).reindex(
-        range(max(_inttypes_map.keys())),
+        index=range(max(_inttypes_map.keys())),
         method='bfill',
     ),
 )
